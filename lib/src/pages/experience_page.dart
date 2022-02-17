@@ -20,10 +20,16 @@ class ExperiencePage extends StatelessWidget {
               "My Projects",
               style: titleTextStyle,
             ),
-            SizedBox(height: 30,),
+            SizedBox(
+              height: 30,
+            ),
             Wrap(
+              runSpacing: 30,
               children: ScreenLayoutController.to.projectList.map((i) {
-                return _project(i);
+                return Card(
+                    elevation: 0,
+                    color: Colors.transparent,
+                    child: _project(i));
               }).toList(),
             ),
           ],
@@ -33,22 +39,55 @@ class ExperiencePage extends StatelessWidget {
   }
 
   Widget _project(i) {
-    return Row(
-      children: [
-         Expanded(child: Placeholder()),
-        Expanded(
-          child: Column(
+    print(
+        "@@ScreenLayoutController.to.type.value =${ScreenLayoutController.to.type.value}");
+
+    return ScreenLayoutController.to.type.value == ScreenSizeType.DESKTOP
+        ? Row(
+            mainAxisAlignment:
+                ScreenLayoutController.to.projectList.indexOf(i).isOdd
+                    ? MainAxisAlignment.end
+                    : MainAxisAlignment.start,
             children: [
-              Text(i["title"],style: contentTextStyle,),
-              SizedBox(height: 10,),
-              Text(i["text"]),
-              SizedBox(height: 10,),
-              Text(i["summary"]),
-              SizedBox(height: 10,),
-              Text("Skills Used"),
-              Wrap(children: List.generate(i["techUsed"].length, (index) => Chip(label: Text("${index}"))),)
+              ScreenLayoutController.to.projectList.indexOf(i).isOdd
+                  ? Expanded(child: _sectionData(i))
+                  : _sectionImg(i),
+              ScreenLayoutController.to.projectList.indexOf(i).isOdd
+                  ? _sectionImg(i)
+                  : Expanded(child: _sectionData(i)),
             ],
-          ),
+          )
+        : Column(
+            children: [_sectionImg(i), _sectionData(i)],
+          );
+  }
+
+  Widget _sectionImg(i) {
+    return Placeholder();
+  }
+
+  Widget _sectionData(i) {
+    return Column(
+      children: [
+        Text(
+          i["title"],
+          style: contentTextStyle,
+        ),
+        SizedBox(
+          height: 10,
+        ),
+        Text(i["text"]),
+        SizedBox(
+          height: 10,
+        ),
+        Text(i["summary"]),
+        SizedBox(
+          height: 10,
+        ),
+        Text("Skills Used"),
+        Wrap(
+          children: List.generate(
+              i["techUsed"].length, (index) => Chip(label: Text("${index}"))),
         )
       ],
     );

@@ -84,8 +84,7 @@ class ScreenLayoutController extends GetxController {
   void builder(BoxConstraints constraints) {
     if (constraints.biggest.width <= 480) {
       _screenType(ScreenSizeType.MOBILE);
-    } else if (constraints.biggest.width >= 480 &&
-        constraints.biggest.width < 768) {
+    } else if (constraints.biggest.width >= 480 && constraints.biggest.width < 768) {
       _screenType(ScreenSizeType.TABLET);
     } else {
       _screenType(ScreenSizeType.DESKTOP);
