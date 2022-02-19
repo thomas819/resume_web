@@ -9,7 +9,7 @@ class AboutPage extends GetView<ScreenLayoutController> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.red,
+      color: Colors.red.shade100,
       padding: EdgeInsets.all(60),
       key: ScreenLayoutController.to.aboutKey,
       child: ConstrainedBox(

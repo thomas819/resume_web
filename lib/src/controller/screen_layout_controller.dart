@@ -51,24 +51,19 @@ class ScreenLayoutController extends GetxController {
     {
       "title": "Artbandhu - Career Discovery Platform",
       "image": "",
-      "text": "Social Art Feed Application for local artist and community",
-      "summary":
+      "subTitle": "Social Art Feed Application for local artist and community",
+      "content":
           "Artbandhu app helps millions of creative professionals/artist succeed with upskilling and on-demand creative jobs & monetization opportunities, around the world",
-      "summary2":
-          "Worked on front end for the app with Dart and Flutter \nSocial Logins using firebase authentication \nUsed Firebase storage for file uploads \nEnsuring project quality and timely resolution of issues.",
-      "techUsed" : ["1","2"],
+      "techUsed" : ["1","2","3","4","5","1","2","3","4","5","1","2","3","4","5","1","2","3","4","5","1","2","3","4","5"],
       "storeLink": "",
     },
     {
       "title": "Artbandhu - Career Discovery Platform",
       "image": "",
-      "text": "Social Art Feed Application for local artist and community",
-      "summary":
+      "subTitle": "Social Art Feed Application for local artist and community",
+      "content":
       "Artbandhu app helps millions of creative professionals/artist succeed with upskilling and on-demand creative jobs & monetization opportunities, around the world",
-      "summary2":
-      "Worked on front end for the app with Dart and Flutter \nSocial Logins using firebase authentication \nUsed Firebase storage for file uploads \nEnsuring project quality and timely resolution of issues.",
-      "techUsed":
-      ["1","2","3","4"],
+      "techUsed" : ["1","2"],
       "storeLink": "",
     },
   ];

@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -10,7 +11,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.blue,
+      color: Colors.blue.shade100,
       padding: EdgeInsets.all(60),
       key: ScreenLayoutController.to.homeKey,
       child: ConstrainedBox(
@@ -51,8 +52,9 @@ class HomePage extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Image(
-          image: AssetImage('images/thomas.png'),
+        CachedNetworkImage(
+          imageUrl:
+              "https://firebasestorage.googleapis.com/v0/b/thomas-resume.appspot.com/o/thomas.png?alt=media&token=ec066515-7e6a-4ec2-8105-8615a4a9bd39",
           width: ScreenLayoutController.to.type.value == ScreenSizeType.DESKTOP
               ? Get.width * 0.3
               : Get.width * 0.6,

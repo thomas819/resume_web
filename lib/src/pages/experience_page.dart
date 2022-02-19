@@ -10,7 +10,7 @@ class ExperiencePage extends StatelessWidget {
     return Container(
       padding: EdgeInsets.all(60),
       key: ScreenLayoutController.to.experienceKey,
-      color: Colors.green,
+      color: Colors.green.shade100,
       child: ConstrainedBox(
         constraints: BoxConstraints(minHeight: 900),
         child: Column(
@@ -39,9 +39,6 @@ class ExperiencePage extends StatelessWidget {
   }
 
   Widget _project(i) {
-    print(
-        "@@ScreenLayoutController.to.type.value =${ScreenLayoutController.to.type.value}");
-
     return ScreenLayoutController.to.type.value == ScreenSizeType.DESKTOP
         ? Row(
             mainAxisAlignment:
@@ -58,7 +55,11 @@ class ExperiencePage extends StatelessWidget {
             ],
           )
         : Column(
-            children: [_sectionImg(i), _sectionData(i)],
+            children: [
+              _sectionImg(i),
+
+              _sectionData(i)
+            ],
           );
   }
 
@@ -67,29 +68,45 @@ class ExperiencePage extends StatelessWidget {
   }
 
   Widget _sectionData(i) {
-    return Column(
-      children: [
-        Text(
-          i["title"],
-          style: contentTextStyle,
-        ),
-        SizedBox(
-          height: 10,
-        ),
-        Text(i["text"]),
-        SizedBox(
-          height: 10,
-        ),
-        Text(i["summary"]),
-        SizedBox(
-          height: 10,
-        ),
-        Text("Skills Used"),
-        Wrap(
-          children: List.generate(
-              i["techUsed"].length, (index) => Chip(label: Text("${index}"))),
-        )
-      ],
+    return Container(
+      padding: EdgeInsets.all(30),
+      child: Column(
+        children: [
+          Text(
+            i["title"],
+            style: projectTitleTextStyle,
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Text(
+            i["subTitle"],
+            style: projectSubTitleTextStyle,
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Text(
+            i["content"],
+            style: projectContentTextStyle,
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Text("Skills Used"),
+          SizedBox(
+            height: 10,
+          ),
+          Wrap(
+            children: List.generate(
+                i["techUsed"].length,
+                (index) => Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: Chip(label: Text("$index")),
+                    )),
+          )
+        ],
+      ),
     );
   }
 }
