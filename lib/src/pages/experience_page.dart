@@ -1,6 +1,9 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:resume_web/src/components/app_text_size.dart';
 import 'package:resume_web/src/controller/screen_layout_controller.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ExperiencePage extends StatelessWidget {
   const ExperiencePage({Key? key}) : super(key: key);
@@ -21,7 +24,7 @@ class ExperiencePage extends StatelessWidget {
               style: titleTextStyle,
             ),
             SizedBox(
-              height: 30,
+              height: 60,
             ),
             Wrap(
               runSpacing: 30,
@@ -48,52 +51,98 @@ class ExperiencePage extends StatelessWidget {
             children: [
               ScreenLayoutController.to.projectList.indexOf(i).isOdd
                   ? Expanded(child: _sectionData(i))
-                  : _sectionImg(i),
+                  : Expanded(child: _sectionImg(i)),
               ScreenLayoutController.to.projectList.indexOf(i).isOdd
-                  ? _sectionImg(i)
+                  ? Expanded(child: _sectionImg(i))
                   : Expanded(child: _sectionData(i)),
             ],
           )
         : Column(
-            children: [
-              _sectionImg(i),
-
-              _sectionData(i)
-            ],
+            children: [_sectionImg(i), _sectionData(i)],
           );
   }
 
   Widget _sectionImg(i) {
-    return Placeholder();
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        CachedNetworkImage(
+          imageUrl: i["image"],
+          height: 500,
+        ),
+        SizedBox(
+          height: 10,
+        ),
+        Container(
+          height: 80,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              GestureDetector(
+                  onTap: () => launch(i["googleStore"]),
+                  child: SvgPicture.asset("icon/google_play.svg",width: 100,)),
+              SizedBox(
+                width: 10,
+              ),
+              i["appleStore"] != null
+                  ? GestureDetector(onTap: () => launch(i["appleStore"]),
+                    child: SvgPicture.asset(
+                        "icon/app_store.svg",width: 100
+                      ),
+                  )
+                  : Container()
+            ],
+          ),
+        )
+      ],
+    );
   }
 
   Widget _sectionData(i) {
     return Container(
       padding: EdgeInsets.all(30),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
-            i["title"],
+            i["appName"],
             style: projectTitleTextStyle,
           ),
           SizedBox(
-            height: 10,
+            height: 20,
           ),
           Text(
-            i["subTitle"],
+            i["appSummary"],
             style: projectSubTitleTextStyle,
           ),
           SizedBox(
             height: 10,
           ),
           Text(
-            i["content"],
+            i["AppInfo"],
             style: projectContentTextStyle,
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Text(
+            "Responsibilities",
+            style: projectSubTitleTextStyle,
           ),
           SizedBox(
             height: 10,
           ),
-          Text("Skills Used"),
+          Text(
+            i["responsibilities"],
+            style: projectContentTextStyle,
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Text(
+            "Skills Used",
+            style: projectSubTitleTextStyle,
+          ),
           SizedBox(
             height: 10,
           ),
@@ -101,7 +150,7 @@ class ExperiencePage extends StatelessWidget {
             children: List.generate(
                 i["techUsed"].length,
                 (index) => Padding(
-                      padding: const EdgeInsets.all(4.0),
+                      padding: const EdgeInsets.only(right: 8, bottom: 8),
                       child: Chip(label: Text("$index")),
                     )),
           )

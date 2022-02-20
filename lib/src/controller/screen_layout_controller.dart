@@ -49,40 +49,44 @@ class ScreenLayoutController extends GetxController {
   ];
   final projectList = [
     {
-      "title": "Artbandhu - Career Discovery Platform",
-      "image": "",
-      "subTitle": "Social Art Feed Application for local artist and community",
-      "content":
-          "Artbandhu app helps millions of creative professionals/artist succeed with upskilling and on-demand creative jobs & monetization opportunities, around the world",
-      "techUsed" : ["1","2","3","4","5","1","2","3","4","5","1","2","3","4","5","1","2","3","4","5","1","2","3","4","5"],
-      "storeLink": "",
-    },
+    "image": "https://firebasestorage.googleapis.com/v0/b/thomas-resume.appspot.com/o/reviewduck.png?alt=media&token=25d866d5-03f6-4f67-977d-e638439565d7",
+    "appName": "ReviewDuck",
+    "appSummary": "Cafe Reviews Service",
+    "AppInfo":
+    "Artbandhu app helps millions of creative professionals/artist succeed with upskilling and on-demand creative jobs & monetization opportunities, around the world",
+      "responsibilities":"worked on front end for the app with Dart and flutter",
+    "techUsed" : ["1","2","3","4","5","1","2","3","4","5","1","2","3","4","5","1","2","3","4","5","1","2","3","4","5"],
+    "googleStore": "https://play.google.com/store/apps/details?id=com.reviewduck.alphabase.review_duck",
+    "appleStore": "https://apps.apple.com/us/app/%EB%A6%AC%EB%B7%B0%EB%8D%95/id1579481417",
+  },
     {
-      "title": "Artbandhu - Career Discovery Platform",
-      "image": "",
-      "subTitle": "Social Art Feed Application for local artist and community",
-      "content":
+      "image": "https://firebasestorage.googleapis.com/v0/b/thomas-resume.appspot.com/o/cashdd.png?alt=media&token=df5adc6b-01b3-461c-9920-af3041cd4ce3",
+      "appName": "Cash DungDung",
+      "appSummary": "Popup Banner Reward Service",
+      "AppInfo":
       "Artbandhu app helps millions of creative professionals/artist succeed with upskilling and on-demand creative jobs & monetization opportunities, around the world",
-      "techUsed" : ["1","2"],
-      "storeLink": "",
+      "responsibilities":"worked on front end for the app with Dart and flutter",
+      "techUsed" : ["1","2","3","4","5","1","2","3","4","5","1","2","3","4","5","1","2","3","4","5","1","2","3","4","5"],
+      "googleStore": "https://play.google.com/store/apps/details?id=com.alphabase.cashdungdung",
+      "appleStore": null,
     },
-  ];
+];
 
-  @override
-  void onInit() {
-    debounce(_screenType, (_) {
-      type(_screenType.value);
-    }, time: Duration(milliseconds: 200));
-    super.onInit();
-  }
-
-  void builder(BoxConstraints constraints) {
-    if (constraints.biggest.width <= 480) {
-      _screenType(ScreenSizeType.MOBILE);
-    } else if (constraints.biggest.width >= 480 && constraints.biggest.width < 768) {
-      _screenType(ScreenSizeType.TABLET);
-    } else {
-      _screenType(ScreenSizeType.DESKTOP);
-    }
-  }
+@override
+void onInit() {
+  debounce(_screenType, (_) {
+    type(_screenType.value);
+  }, time: Duration(milliseconds: 200));
+  super.onInit();
 }
+
+void builder(BoxConstraints constraints) {
+  if (constraints.biggest.width <= 480) {
+    _screenType(ScreenSizeType.MOBILE);
+  } else
+  if (constraints.biggest.width >= 480 && constraints.biggest.width < 768) {
+    _screenType(ScreenSizeType.TABLET);
+  } else {
+    _screenType(ScreenSizeType.DESKTOP);
+  }
+}}

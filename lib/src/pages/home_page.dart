@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:resume_web/src/components/app_text_size.dart';
 import 'package:resume_web/src/controller/screen_layout_controller.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatelessWidget {
   HomePage();
@@ -68,27 +69,41 @@ class HomePage extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            SvgPicture.asset("icon/github_icon.svg"),
+            InkWell(
+                onTap: () => launch("https://github.com/thomas819"),
+                child: SvgPicture.asset("icon/github_icon.svg")),
             SizedBox(
               width: 15,
             ),
-            SvgPicture.asset("icon/instagram_icon.svg"),
+            InkWell(
+                onTap: () => launch("https://www.instagram.com/minhyun.e/"),
+                child: SvgPicture.asset("icon/instagram_icon.svg")),
             SizedBox(
               width: 15,
             ),
-            SvgPicture.asset("icon/linkedin_icon.svg"),
+            InkWell(
+                onTap: () =>
+                    launch("https://www.linkedin.com/in/thomas-lee-abb253231/"),
+                child: SvgPicture.asset("icon/linkedin_icon.svg")),
             SizedBox(
               width: 15,
             ),
-            Text("Blog"),
+            InkWell(
+                onTap: () => launch("https://thomass.tistory.com/"),
+                child: Text("Blog")),
             SizedBox(
               width: 15,
             ),
-            Text("Blog2"),
+            InkWell(
+                onTap: () => launch("https://blog.naver.com/min819"),
+                child: Text("Blog2")),
             SizedBox(
               width: 15,
             ),
-            Container(child: Text("resume")),
+            InkWell(
+                onTap: () => launch(
+                    "https://docs.google.com/document/d/1nY61njYLk3-EykObWnE3TcFcLnUxx20_kfsylZSOhns/edit?usp=sharing"),
+                child: Text("resume")),
           ],
         ),
       ],
@@ -111,8 +126,7 @@ class HomePage extends StatelessWidget {
         SizedBox(
           height: 30,
         ),
-        Text(
-            "One must live the way one thinks\nor end up thinking the way one has lived.",
+        Text("I'm an app developer who\ncontinues to challenge and grow.",
             style: subTitleTextStyle),
         SizedBox(height: 30),
         Text(
