@@ -5,8 +5,8 @@ import 'package:resume_web/src/components/app_text_size.dart';
 import 'package:resume_web/src/controller/screen_layout_controller.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class ExperiencePage extends StatelessWidget {
-  const ExperiencePage({Key? key}) : super(key: key);
+class ProjectPage extends StatelessWidget {
+  const ProjectPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class ExperiencePage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(
-              "My Projects",
+              "Work Experience",
               style: titleTextStyle,
             ),
             SizedBox(
@@ -63,38 +63,42 @@ class ExperiencePage extends StatelessWidget {
   }
 
   Widget _sectionImg(i) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        CachedNetworkImage(
-          imageUrl: i["image"],
-          height: 500,
-        ),
-        SizedBox(
-          height: 10,
-        ),
-        Container(
-          height: 80,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              GestureDetector(
-                  onTap: () => launch(i["googleStore"]),
-                  child: SvgPicture.asset("icon/google_play.svg",width: 100,)),
-              SizedBox(
-                width: 10,
-              ),
-              i["appleStore"] != null
-                  ? GestureDetector(onTap: () => launch(i["appleStore"]),
-                    child: SvgPicture.asset(
-                        "icon/app_store.svg",width: 100
-                      ),
-                  )
-                  : Container()
-            ],
+    return Container(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          CachedNetworkImage(
+            imageUrl: i["image"],
+            height: 500,
           ),
-        )
-      ],
+          SizedBox(
+            height: 10,
+          ),
+          Container(
+            height: 80,
+            child: ScreenLayoutController.to.type.value == ScreenSizeType.DESKTOP ? Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                GestureDetector(
+                    onTap: () => launch(i["googleStore"]),
+                    child: SvgPicture.asset("icon/google_play.svg",width: 100,)),
+                SizedBox(
+                  width: 10,
+                ),
+                i["appleStore"] != null
+                    ? GestureDetector(onTap: () => launch(i["appleStore"]),
+                      child: SvgPicture.asset(
+                          "icon/app_store.svg",width: 100
+                        ),
+                    )
+                    : Container()
+              ],
+            ):Column(mainAxisAlignment: MainAxisAlignment.center,children: [
+
+            ],)
+          )
+        ],
+      ),
     );
   }
 

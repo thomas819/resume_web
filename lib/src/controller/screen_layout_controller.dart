@@ -70,6 +70,28 @@ class ScreenLayoutController extends GetxController {
       "googleStore": "https://play.google.com/store/apps/details?id=com.alphabase.cashdungdung",
       "appleStore": null,
     },
+    {
+      "image": "https://firebasestorage.googleapis.com/v0/b/thomas-resume.appspot.com/o/flybook.png?alt=media&token=a86b9c62-9e22-43e5-99cd-da2a36a89f55",
+      "appName": "FlyBook",
+      "appSummary": "book platform",
+      "AppInfo":
+      "Artbandhu app helps millions of creative professionals/artist succeed with upskilling and on-demand creative jobs & monetization opportunities, around the world",
+      "responsibilities":"worked on front end for the app with Dart and flutter",
+      "techUsed" : ["1","2","3","4","5","1","2","3","4","5","1","2","3","4","5","1","2","3","4","5","1","2","3","4","5"],
+      "googleStore": "https://play.google.com/store/apps/details?id=com.flybook.flybook&hl=ko",
+      "appleStore": null,
+    },
+    {
+      "image": "https://firebasestorage.googleapis.com/v0/b/thomas-resume.appspot.com/o/plumboard.jpg?alt=media&token=7b6680ed-8a50-4f6c-b099-4260858fcf86",
+      "appName": "PlumBoard",
+      "appSummary": "book platform",
+      "AppInfo":
+      "Artbandhu app helps millions of creative professionals/artist succeed with upskilling and on-demand creative jobs & monetization opportunities, around the world",
+      "responsibilities":"worked on front end for the app with Dart and flutter",
+      "techUsed" : ["1","2","3","4","5","1","2","3","4","5","1","2","3","4","5","1","2","3","4","5","1","2","3","4","5"],
+      "googleStore": "https://play.google.com/store/apps/details?id=com.imhc2.plumboard&hl=ko&gl=US",
+      "appleStore": null,
+    },
 ];
 
 @override

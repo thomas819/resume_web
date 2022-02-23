@@ -5,7 +5,7 @@ import 'package:resume_web/src/controller/screen_layout_controller.dart';
 import 'package:resume_web/src/pages/about_page.dart';
 import 'package:resume_web/src/pages/home_page.dart';
 
-import 'experience_page.dart';
+import 'project_page.dart';
 
 class MainPage extends GetView<ScreenLayoutController> {
   MainPage();
@@ -60,7 +60,7 @@ class MainPage extends GetView<ScreenLayoutController> {
       menuBtn("About",() {
         returnSelectedTab(1);
       }),
-      menuBtn("Experience",() {
+      menuBtn("Projects",() {
         returnSelectedTab(2);
       }),
       menuBtn("Contact",() {
@@ -108,7 +108,7 @@ class MainPage extends GetView<ScreenLayoutController> {
           children: [
             HomePage(),
             AboutPage(),
-            ExperiencePage(),
+            ProjectPage(),
             Footer(),
           ],
         ),
