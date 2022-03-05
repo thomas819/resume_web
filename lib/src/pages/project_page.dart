@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -20,10 +19,13 @@ class ProjectPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            AutoSizeText(
-              "Work Experience",
-              style: titleTextStyle,
-              maxLines: 1,
+            FittedBox(
+              alignment: Alignment.centerLeft,
+              fit: BoxFit.scaleDown,
+              child: Text(
+                "Work Experience",
+                style: titleTextStyle,
+              ),
             ),
             SizedBox(
               height: 60,
@@ -31,10 +33,7 @@ class ProjectPage extends StatelessWidget {
             Wrap(
               runSpacing: 30,
               children: ScreenLayoutController.to.projectList.map((i) {
-                return Card(
-                    elevation: 0,
-                    color: Colors.transparent,
-                    child: _project(i));
+                return _project(i);
               }).toList(),
             ),
           ],
@@ -130,10 +129,13 @@ class ProjectPage extends StatelessWidget {
           SizedBox(
             height: 20,
           ),
-          AutoSizeText(
-            i["appSummary"],
-            style: projectSubTitleTextStyle,
-            maxLines: 1,
+          FittedBox(
+            alignment: Alignment.centerLeft,
+            fit: BoxFit.scaleDown,
+            child: Text(
+              i["appSummary"],
+              style: projectSubTitleTextStyle,
+            ),
           ),
           SizedBox(
             height: 10,
@@ -145,10 +147,13 @@ class ProjectPage extends StatelessWidget {
           SizedBox(
             height: 20,
           ),
-          AutoSizeText(
-            "Professional experience",
-            style: projectSubTitleTextStyle,
-            maxLines: 1,
+          FittedBox(
+            alignment: Alignment.centerLeft,
+            fit: BoxFit.scaleDown,
+            child: Text(
+              "Professional experience",
+              style: projectSubTitleTextStyle,
+            ),
           ),
           SizedBox(
             height: 10,

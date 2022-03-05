@@ -37,7 +37,8 @@ class MainPage extends GetView<ScreenLayoutController> {
   PreferredSizeWidget _appBar() {
     return AppBar(
       titleSpacing: 10.0,
-      centerTitle: controller.type.value == ScreenSizeType.MOBILE ? true : false,
+      centerTitle:
+          controller.type.value == ScreenSizeType.MOBILE ? true : false,
       title: Text(
         "Thomas Lee",
         style: TextStyle(
@@ -55,22 +56,22 @@ class MainPage extends GetView<ScreenLayoutController> {
 
   List<Widget> _actions() {
     return <Widget>[
-      menuBtn("Home",() {
+      menuBtn("Home", () {
         returnSelectedTab(0);
       }),
-      menuBtn("About",() {
+      menuBtn("About", () {
         returnSelectedTab(1);
       }),
-      menuBtn("Projects",() {
+      menuBtn("Projects", () {
         returnSelectedTab(2);
       }),
-      menuBtn("Contact",() {
+      menuBtn("Contact", () {
         returnSelectedTab(3);
       }),
     ];
   }
 
-  Widget menuBtn(String name,VoidCallback onTap) {
+  Widget menuBtn(String name, VoidCallback onTap) {
     return MaterialButton(
       // textColor:  controller.selectedIndex.value==count ? Colors.lightBlue: Colors.black,
       padding: EdgeInsets.only(right: 25, left: 25),
@@ -86,20 +87,23 @@ class MainPage extends GetView<ScreenLayoutController> {
     return controller.type.value == ScreenSizeType.DESKTOP
         ? null
         : BottomNavigationBar(
-      type: BottomNavigationBarType.fixed,
+            type: BottomNavigationBarType.fixed,
             items: [
-              BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.home_outlined), label: 'Home'),
               BottomNavigationBarItem(
                   icon: Icon(Icons.account_circle_outlined), label: 'About'),
               BottomNavigationBarItem(
                   icon: Icon(Icons.article_outlined), label: 'Experience'),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.phone), label: 'Contact'),
+                  icon: Icon(Icons.phone_outlined), label: 'Contact'),
             ],
             currentIndex: controller.selectedIndex.value,
             onTap: (index) => returnSelectedTab(index),
-            selectedItemColor: Colors.blueAccent,
+            selectedItemColor: Colors.blueGrey,
             unselectedItemColor: Colors.blueGrey,
+            selectedFontSize: 12,
+            unselectedFontSize: 12,
           );
   }
 
@@ -120,7 +124,7 @@ class MainPage extends GetView<ScreenLayoutController> {
   }
 
   returnSelectedTab(_selectedIndex) {
-    controller.selectedIndex.value=_selectedIndex;
+    controller.selectedIndex.value = _selectedIndex;
     if (_selectedIndex == 0) {
       Scrollable.ensureVisible(controller.homeKey.currentContext!,
           duration: Duration(milliseconds: 400), curve: Curves.easeInOut);

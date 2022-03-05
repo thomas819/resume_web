@@ -35,7 +35,7 @@ class ContactPage extends StatelessWidget {
                     ],
                   )
                 : Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       _bloc(Icons.call, "korea : 010-4688-8886\ncanada : ?"),
                       _bloc(Icons.email, "thomass0819@gmail.com"),
@@ -48,8 +48,15 @@ class ContactPage extends StatelessWidget {
   }
 
   Widget _bloc(IconData icon, String text) {
-    return Card(
-        margin: EdgeInsets.only(right: 30, bottom: 30),
+    return Container(
+        decoration: BoxDecoration(color: Colors.white, boxShadow: [
+          BoxShadow(
+            color: Colors.grey,
+            offset: Offset(0.0, 1.0), //(x,y)
+            blurRadius: 6.0,
+          ),
+        ]),
+        margin: EdgeInsets.only(right: 15, bottom: 30, left: 15),
         child: Container(
           width: 400,
           height: 400,

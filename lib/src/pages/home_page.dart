@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -72,20 +71,24 @@ class HomePage extends StatelessWidget {
           children: [
             InkWell(
                 onTap: () => launch("https://github.com/thomas819"),
-                child: SvgPicture.network("https://firebasestorage.googleapis.com/v0/b/thomas-resume.appspot.com/o/github_icon.svg?alt=media&token=a41bf255-7be3-4e5d-bcbc-c519beea270d")),
+                child: SvgPicture.network(
+                  "https://firebasestorage.googleapis.com/v0/b/thomas-resume.appspot.com/o/github_icon.svg?alt=media&token=a41bf255-7be3-4e5d-bcbc-c519beea270d",
+                )),
             SizedBox(
               width: 15,
             ),
             InkWell(
                 onTap: () => launch("https://www.instagram.com/minhyun.e/"),
-                child: SvgPicture.network("https://firebasestorage.googleapis.com/v0/b/thomas-resume.appspot.com/o/instagram_icon.svg?alt=media&token=801602fc-1437-4e99-b239-daa09dd4b724")),
+                child: SvgPicture.network(
+                    "https://firebasestorage.googleapis.com/v0/b/thomas-resume.appspot.com/o/instagram_icon.svg?alt=media&token=801602fc-1437-4e99-b239-daa09dd4b724")),
             SizedBox(
               width: 15,
             ),
             InkWell(
                 onTap: () =>
                     launch("https://www.linkedin.com/in/thomas-lee-abb253231/"),
-                child: SvgPicture.network("https://firebasestorage.googleapis.com/v0/b/thomas-resume.appspot.com/o/linkedin_icon.svg?alt=media&token=6a0aad73-0ee6-4007-b453-ccc468be2803")),
+                child: SvgPicture.network(
+                    "https://firebasestorage.googleapis.com/v0/b/thomas-resume.appspot.com/o/linkedin_icon.svg?alt=media&token=6a0aad73-0ee6-4007-b453-ccc468be2803")),
             SizedBox(
               width: 15,
             ),
@@ -116,21 +119,29 @@ class HomePage extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        AutoSizeText(
-          "Thomas Lee",
-          style: titleTextStyle,
-          textAlign:
-              ScreenLayoutController.to.type.value == ScreenSizeType.DESKTOP
-                  ? TextAlign.start
-                  : TextAlign.center,
-          maxLines: 1,
+        FittedBox(
+          alignment: Alignment.centerLeft,
+          fit: BoxFit.scaleDown,
+          child: Text(
+            "Thomas Lee",
+            style: titleTextStyle,
+            textAlign:
+                ScreenLayoutController.to.type.value == ScreenSizeType.DESKTOP
+                    ? TextAlign.start
+                    : TextAlign.center,
+          ),
         ),
         SizedBox(
           height: 30,
         ),
-        AutoSizeText("I'm an app developer who continues to challenge and grow.",
+        FittedBox(
+          alignment: Alignment.centerLeft,
+          fit: BoxFit.scaleDown,
+          child: Text(
+            "I'm an app developer who\ncontinues to challenge and grow.",
             style: subTitleTextStyle,
-        maxLines: 2,),
+          ),
+        ),
         SizedBox(height: 30),
         Text(
           "It's only one-time life, so I think we should live happily ever after.\nI think happiness comes from thinking.\nIf you think positively and positively in any situation, you can enjoy it.\nIt's meaningful to have a dream in life, and I think one of the processes is to work hard on something.\nI want to join a company that I need to have the ability to work with and help each other and have fun.\nEven if I'm not good at English, I'll learn quickly!",

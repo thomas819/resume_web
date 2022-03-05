@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:resume_web/src/components/app_text_size.dart';
@@ -39,10 +38,16 @@ class AboutPage extends GetView<ScreenLayoutController> {
 
   Widget _deskTopMode() {
     return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Expanded(child: _introduction(),flex: 3,),
-        SizedBox(width:100,),
+        Expanded(
+          child: _introduction(),
+          flex: 3,
+        ),
+        SizedBox(
+          width: 100,
+        ),
         Expanded(
           child: _education(),
           flex: 2,
@@ -67,6 +72,7 @@ class AboutPage extends GetView<ScreenLayoutController> {
   Widget _education() {
     return Container(
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
@@ -76,7 +82,10 @@ class AboutPage extends GetView<ScreenLayoutController> {
           SizedBox(
             height: 30,
           ),
-          Wrap(children: ScreenLayoutController.to.education.map((i) => _educations(i)).toList()),
+          Wrap(
+              children: ScreenLayoutController.to.education
+                  .map((i) => _educations(i))
+                  .toList()),
           //ScreenLayoutController.to.education.map((i) => _educations(i)).toList(),
         ],
       ),
@@ -87,18 +96,24 @@ class AboutPage extends GetView<ScreenLayoutController> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        AutoSizeText(
-          i["name"],
-          style: projectTitleTextStyle,
-          maxLines: 1,
+        FittedBox(
+          alignment: Alignment.centerLeft,
+          fit: BoxFit.scaleDown,
+          child: Text(
+            i["name"],
+            style: projectTitleTextStyle,
+          ),
         ),
         SizedBox(
           height: 8,
         ),
-        AutoSizeText(
-          i["date"],
-          style: projectSubTitleTextStyle,
-          maxLines: 1,
+        FittedBox(
+          alignment: Alignment.centerLeft,
+          fit: BoxFit.scaleDown,
+          child: Text(
+            i["date"],
+            style: projectSubTitleTextStyle,
+          ),
         ),
         SizedBox(
           height: 5,
@@ -116,12 +131,16 @@ class AboutPage extends GetView<ScreenLayoutController> {
 
   Widget _introduction() {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        AutoSizeText(
-          "Mobile Application Developer\nfrom the Republic of Korea",
-          style: subTitleTextStyle,
-          maxLines: 2,
+        FittedBox(
+          alignment: Alignment.centerLeft,
+          fit: BoxFit.scaleDown,
+          child: Text(
+            "Mobile Application Developer\nfrom the Republic of Korea",
+            style: subTitleTextStyle,
+          ),
         ),
         SizedBox(height: 30),
         Text(
@@ -129,12 +148,15 @@ class AboutPage extends GetView<ScreenLayoutController> {
           style: contentTextStyle,
         ),
         SizedBox(
-          height: 30,
+          height: 60,
         ),
-        AutoSizeText(
-          "What Skills I Experience",
-          style: subTitleTextStyle,
-          maxLines: 1,
+        FittedBox(
+          alignment: Alignment.centerLeft,
+          fit: BoxFit.scaleDown,
+          child: Text(
+            "What Skills I Experience",
+            style: subTitleTextStyle,
+          ),
         ),
         SizedBox(
           height: 30,
@@ -142,16 +164,16 @@ class AboutPage extends GetView<ScreenLayoutController> {
         Wrap(
           children: List.generate(
               controller.skills.length,
-                  (index) => Padding(
-                padding: const EdgeInsets.only(right: 6,bottom: 6),
-                child: Chip(
-                  label: Text(
-                    controller.skills[index],
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  backgroundColor: Colors.white,
-                ),
-              )),
+              (index) => Padding(
+                    padding: const EdgeInsets.only(right: 6, bottom: 6),
+                    child: Chip(
+                      label: Text(
+                        controller.skills[index],
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      backgroundColor: Colors.white,
+                    ),
+                  )),
         ),
       ],
     );
