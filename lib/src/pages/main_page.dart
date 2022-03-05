@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:resume_web/src/components/footer.dart';
 import 'package:resume_web/src/controller/screen_layout_controller.dart';
 import 'package:resume_web/src/pages/about_page.dart';
+import 'package:resume_web/src/pages/contact_page.dart';
 import 'package:resume_web/src/pages/home_page.dart';
 
 import 'project_page.dart';
@@ -85,6 +86,7 @@ class MainPage extends GetView<ScreenLayoutController> {
     return controller.type.value == ScreenSizeType.DESKTOP
         ? null
         : BottomNavigationBar(
+      type: BottomNavigationBarType.fixed,
             items: [
               BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
               BottomNavigationBarItem(
@@ -109,6 +111,7 @@ class MainPage extends GetView<ScreenLayoutController> {
             HomePage(),
             AboutPage(),
             ProjectPage(),
+            ContactPage(),
             Footer(),
           ],
         ),
@@ -132,7 +135,7 @@ class MainPage extends GetView<ScreenLayoutController> {
           duration: Duration(milliseconds: 400),
           curve: Curves.easeInOut);
     } else {
-      Scrollable.ensureVisible(controller.experienceKey.currentContext!,
+      Scrollable.ensureVisible(controller.contactKey.currentContext!,
           alignment: 0.0,
           duration: Duration(milliseconds: 400),
           curve: Curves.easeInOut);

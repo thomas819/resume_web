@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:resume_web/src/components/app_text_size.dart';
@@ -9,8 +10,8 @@ class AboutPage extends GetView<ScreenLayoutController> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.red.shade100,
-      padding: EdgeInsets.all(60),
+      color: Colors.red.shade50,
+      padding: EdgeInsets.all(30),
       key: ScreenLayoutController.to.aboutKey,
       child: ConstrainedBox(
         constraints: BoxConstraints(minHeight: 900),
@@ -40,9 +41,11 @@ class AboutPage extends GetView<ScreenLayoutController> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Expanded(child: _introduction()),
+        Expanded(child: _introduction(),flex: 3,),
+        SizedBox(width:100,),
         Expanded(
-          child: _skill(),
+          child: _education(),
+          flex: 2,
         ),
       ],
     );
@@ -56,34 +59,56 @@ class AboutPage extends GetView<ScreenLayoutController> {
         SizedBox(
           height: 30,
         ),
-        _skill(),
+        _education(),
       ],
     );
   }
 
-  Widget _skill() {
+  Widget _education() {
+    return Container(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Text(
+            "Education",
+            style: subTitleTextStyle,
+          ),
+          SizedBox(
+            height: 30,
+          ),
+          Wrap(children: ScreenLayoutController.to.education.map((i) => _educations(i)).toList()),
+          //ScreenLayoutController.to.education.map((i) => _educations(i)).toList(),
+        ],
+      ),
+    );
+  }
+
+  Widget _educations(i) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Text(
-          "What Skills I Experience",
-          style: subTitleTextStyle,
+        AutoSizeText(
+          i["name"],
+          style: projectTitleTextStyle,
+          maxLines: 1,
         ),
         SizedBox(
-          height: 30,
+          height: 8,
         ),
-        Wrap(
-          children: List.generate(
-              controller.skills.length,
-              (index) => Padding(
-                    padding: const EdgeInsets.all(4.0),
-                    child: Chip(
-                      label: Text(
-                        controller.skills[index],
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      backgroundColor: Colors.white,
-                    ),
-                  )),
+        AutoSizeText(
+          i["date"],
+          style: projectSubTitleTextStyle,
+          maxLines: 1,
+        ),
+        SizedBox(
+          height: 5,
+        ),
+        Text(
+          i["content"],
+          style: projectContentTextStyle,
+        ),
+        SizedBox(
+          height: 25,
         ),
       ],
     );
@@ -93,14 +118,40 @@ class AboutPage extends GetView<ScreenLayoutController> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Text(
+        AutoSizeText(
           "Mobile Application Developer\nfrom the Republic of Korea",
           style: subTitleTextStyle,
+          maxLines: 2,
         ),
         SizedBox(height: 30),
         Text(
-          "3 years and 9 months of experience in mobile application development in the it industry.\n3 years is the development of Android apps, 9 months is the flutter and Android.\nHaving Knowledge languages of java, kotlin, dart, python, mysql\nWorking experience in developing android, flutter (aos,ios) playstore, appptore app, and distribution.\nI have the ability to manage schedules, collaborate with designers, and experience working at a startup company.\nI will continue to work hard in a responsible manner and fulfill my duties faithfully.",
+          "3 years and 9 months of experience in mobile application development in the it industry.\n3 years is the development of Android apps, 9 months is the flutter and Android.\nHaving Knowledge languages of java, kotlin, dart, python, mysql\nWorking experience in developing android, flutter (aos,ios) playstore, appptore app, and distribution.\nI have the ability to manage schedules, collaborate with designer and server developer,experience working at a startup company.\nI will continue to work hard in a responsible manner and fulfill my duties faithfully.",
           style: contentTextStyle,
+        ),
+        SizedBox(
+          height: 30,
+        ),
+        AutoSizeText(
+          "What Skills I Experience",
+          style: subTitleTextStyle,
+          maxLines: 1,
+        ),
+        SizedBox(
+          height: 30,
+        ),
+        Wrap(
+          children: List.generate(
+              controller.skills.length,
+                  (index) => Padding(
+                padding: const EdgeInsets.only(right: 6,bottom: 6),
+                child: Chip(
+                  label: Text(
+                    controller.skills[index],
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  backgroundColor: Colors.white,
+                ),
+              )),
         ),
       ],
     );

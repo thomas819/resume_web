@@ -8,4 +8,4 @@ TextStyle contentTextStyle = TextStyle(fontSize: 24, color: Colors.black54, word
 
 TextStyle projectTitleTextStyle = TextStyle(fontSize: 24, wordSpacing: 3);
 TextStyle projectSubTitleTextStyle = TextStyle(fontSize: 18, color: Colors.black87, wordSpacing: 3);
-TextStyle projectContentTextStyle = TextStyle(fontSize: 16, color: Colors.black54, wordSpacing: 3);
+TextStyle projectContentTextStyle = TextStyle(fontSize: 16, color: Colors.black54, wordSpacing: 3,height: 1.5);
