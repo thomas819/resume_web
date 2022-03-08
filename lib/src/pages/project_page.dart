@@ -81,16 +81,30 @@ class ProjectPage extends StatelessWidget {
           Container(
               height: 80,
               child:
-                  ScreenLayoutController.to.type.value == ScreenSizeType.DESKTOP
-                      ? Row(
+                       Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             i["googleStore"] != null
                                 ? InkWell(
                                     onTap: () => launch(i["googleStore"]),
-                                    child: SvgPicture.network(
-                                      "https://firebasestorage.googleapis.com/v0/b/thomas-resume.appspot.com/o/google_play.svg?alt=media&token=482083c2-8fa1-44c5-be02-b29ae6205618",
-                                      width: 100,
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                          boxShadow: [
+                                            BoxShadow(
+                                              color: Colors.grey.withOpacity(0.5),
+                                              blurRadius: 3.0, // has the effect of softening the shadow
+                                              spreadRadius: 0.0, // has the effect of extending the shadow
+                                              offset: Offset(
+                                                2.0, // horizontal, move right 10
+                                               2.0, // vertical, move down 10
+                                              ),
+                                            )
+                                          ]
+                                      ),
+                                      child: SvgPicture.network(
+                                        "https://firebasestorage.googleapis.com/v0/b/thomas-resume.appspot.com/o/google_play.svg?alt=media&token=482083c2-8fa1-44c5-be02-b29ae6205618",
+                                        width: 100,
+                                      ),
                                     ))
                                 : Container(),
                             SizedBox(
@@ -99,18 +113,30 @@ class ProjectPage extends StatelessWidget {
                             i["appleStore"] != null
                                 ? InkWell(
                                     onTap: () => launch(i["appleStore"]),
-                                    child: SvgPicture.network(
-                                      "https://firebasestorage.googleapis.com/v0/b/thomas-resume.appspot.com/o/app_store.svg?alt=media&token=e5eabac8-e94c-43b8-a23c-01883bc01c67",
-                                      width: 100,
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                          boxShadow: [
+                                            BoxShadow(
+                                              color: Colors.grey.withOpacity(0.5),
+                                              blurRadius: 3.0, // has the effect of softening the shadow
+                                              spreadRadius: 0.0, // has the effect of extending the shadow
+                                              offset: Offset(
+                                                2.0, // horizontal, move right 10
+                                                2.0, // vertical, move down 10
+                                              ),
+                                            )
+                                          ]
+                                      ),
+                                      child: SvgPicture.network(
+                                        "https://firebasestorage.googleapis.com/v0/b/thomas-resume.appspot.com/o/app_store.svg?alt=media&token=e5eabac8-e94c-43b8-a23c-01883bc01c67",
+                                        width: 100,
+                                      ),
                                     ),
                                   )
                                 : Container()
                           ],
                         )
-                      : Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [],
-                        ))
+                      )
         ],
       ),
     );

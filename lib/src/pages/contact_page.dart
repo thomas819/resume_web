@@ -58,7 +58,7 @@ class ContactPage extends StatelessWidget {
         ]),
         margin: EdgeInsets.only(right: 15, bottom: 30, left: 15),
         child: Container(
-          width: 400,
+          width: 300,
           height: 400,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
