@@ -11,6 +11,12 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    precacheImage(
+      CachedNetworkImageProvider(
+          'https://firebasestorage.googleapis.com/v0/b/thomas-resume.appspot.com/o/thomas.png?alt=media&token=ec066515-7e6a-4ec2-8105-8615a4a9bd39'),
+      context,
+    );
+
     return Container(
       color: Colors.blue.shade50,
       padding: EdgeInsets.all(30),
@@ -57,8 +63,12 @@ class HomePage extends StatelessWidget {
         CachedNetworkImage(
           imageUrl:
               "https://firebasestorage.googleapis.com/v0/b/thomas-resume.appspot.com/o/thomas.png?alt=media&token=ec066515-7e6a-4ec2-8105-8615a4a9bd39",
-          width: ScreenLayoutController.to.type.value == ScreenSizeType.DESKTOP ? Get.width * 0.3 : Get.width * 0.6,
-          height: ScreenLayoutController.to.type.value == ScreenSizeType.DESKTOP ? Get.width * 0.3 : Get.width * 0.6,
+          width: ScreenLayoutController.to.type.value == ScreenSizeType.DESKTOP
+              ? Get.width * 0.3
+              : Get.width * 0.6,
+          height: ScreenLayoutController.to.type.value == ScreenSizeType.DESKTOP
+              ? Get.width * 0.3
+              : Get.width * 0.6,
         ),
         SizedBox(
           height: 30,

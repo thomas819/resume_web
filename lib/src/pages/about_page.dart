@@ -144,7 +144,7 @@ class AboutPage extends GetView<ScreenLayoutController> {
         ),
         SizedBox(height: 30),
         Text(
-          "3 years and 9 months of experience in mobile application development in the it industry.\n3 years is the development of Android apps, 9 months is the flutter and Android.\nHaving Knowledge languages of java, kotlin, dart, python, mysql\nWorking experience in developing android, flutter (aos,ios) playstore, appptore app, and distribution.\nI have the ability to manage schedules, collaborate with designer and server developer,experience working at a startup company.\nI will continue to work hard in a responsible manner and fulfill my duties faithfully.",
+          "I have 5 years of experience developing mobile applications in the IT industry. I have 3 years of experience developing Android apps and 2 years of experience developing Flutter apps. I am proficient in Java, Kotlin, Dart, Python, SQL, and PostgreSQL. I have experience developing apps for Android, Flutter (aos,ios), the Play Store, the App Store, FastAPI, and AWS Build. I have experience in schedule management, collaborating with designers and server developers, and working in a startup company. I am a responsible and hard-working person who is committed to fulfilling my duties.",
           style: contentTextStyle,
         ),
         SizedBox(
